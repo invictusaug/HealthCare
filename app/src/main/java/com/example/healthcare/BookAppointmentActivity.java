@@ -7,12 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -29,7 +26,9 @@ public class BookAppointmentActivity extends AppCompatActivity {
     TextView tv;
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
-    private Button dateButton, timeButton, btnBook, btnBack;
+    private Button dateButton;
+    private Button timeButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +47,8 @@ public class BookAppointmentActivity extends AppCompatActivity {
         ed4 = findViewById(R.id.editTextLTBContactNumber);
         dateButton = findViewById(R.id.buttonBMCartDatePicker);
         timeButton = findViewById(R.id.buttonCartTimePicker);
-        btnBook = findViewById(R.id.buttonBMCartCheckout);
-        btnBack = findViewById(R.id.buttonBMCartBack);
+        Button btnBook = findViewById(R.id.buttonBMCartCheckout);
+        Button btnBack = findViewById(R.id.buttonBMCartBack);
 
         ed1.setKeyListener(null);
         ed2.setKeyListener(null);
@@ -89,12 +88,9 @@ public class BookAppointmentActivity extends AppCompatActivity {
         });
     }
     private void initDatePicker() {
-        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month += 1;
-                dateButton.setText(String.format("%d/%d/%d", dayOfMonth, month, year));
-            }
+        DatePickerDialog.OnDateSetListener dateSetListener = (view, year, month, dayOfMonth) -> {
+            month += 1;
+            dateButton.setText(String.format("%d/%d/%d", dayOfMonth, month, year));
         };
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -105,12 +101,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
         datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis()+86400000);
     }
     private void initTimePicker() {
-        TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                timeButton.setText(String.format("%d:%d", hourOfDay, minute));
-            }
-        };
+        TimePickerDialog.OnTimeSetListener timeSetListener = (view, hourOfDay, minute) -> timeButton.setText(String.format("%d:%d", hourOfDay, minute));
         Calendar calendar = Calendar.getInstance();
         int hours = calendar.get(Calendar.HOUR);
         int minutes = calendar.get(Calendar.MINUTE);

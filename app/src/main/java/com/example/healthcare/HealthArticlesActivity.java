@@ -2,8 +2,6 @@ package com.example.healthcare;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -20,7 +18,7 @@ import java.util.stream.IntStream;
 
 public class HealthArticlesActivity extends AppCompatActivity {
 
-    private String[][] health_articles =
+    private final String[][] health_articles =
             {
                     {"Walking Daily", "", "", "", "Click for more Details"},
                     {"Home Care of COVID-19", "", "", "", "Click for more Details"},
@@ -28,7 +26,7 @@ public class HealthArticlesActivity extends AppCompatActivity {
                     {"Menstrual Cramps", "", "", "", "Click for more Details"},
                     {"Healthy Gut", "", "", "", "Click for more Details"},
             };
-    private int[] images = {
+    private final int[] images = {
             R.drawable.health1,
             R.drawable.health2,
             R.drawable.health3,
@@ -53,12 +51,7 @@ public class HealthArticlesActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listViewHA);
         btnBack = findViewById(R.id.buttonHABack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(HealthArticlesActivity.this, HomeActivity.class));
-            }
-        });
+        btnBack.setOnClickListener(v -> startActivity(new Intent(HealthArticlesActivity.this, HomeActivity.class)));
         arrayList = new ArrayList<>();
         IntStream.range(0, health_articles.length).forEachOrdered(i -> {
             stringStringHashMap = new HashMap<>();
@@ -74,14 +67,11 @@ public class HealthArticlesActivity extends AppCompatActivity {
                 new String[]{"line1", "line2", "line3", "line4", "line5"},
                 new int[]{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e});
         listView.setAdapter(simpleAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent it = new Intent(HealthArticlesActivity.this, HealthArticlesDetailsActivity.class);
-                it.putExtra("text1",health_articles[position][0]);
-                it.putExtra("text2", images[position]);
-                startActivity(it);
-            }
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Intent it = new Intent(HealthArticlesActivity.this, HealthArticlesDetailsActivity.class);
+            it.putExtra("text1",health_articles[position][0]);
+            it.putExtra("text2", images[position]);
+            startActivity(it);
         });
     }
 }

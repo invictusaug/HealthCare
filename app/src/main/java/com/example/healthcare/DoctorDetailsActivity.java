@@ -2,8 +2,6 @@ package com.example.healthcare;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -93,15 +91,10 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         } else {
             doctor_details = doctor_details5;
         }
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DoctorDetailsActivity.this, FindDoctorActivity.class));
-            }
-        });
+        btn.setOnClickListener(v -> startActivity(new Intent(DoctorDetailsActivity.this, FindDoctorActivity.class)));
         list = new ArrayList();
         for (String[] doctorDetail : doctor_details) {
-            item = new HashMap<String, String>();
+            item = new HashMap<>();
             item.put("line1", doctorDetail[0]);
             item.put("line2", doctorDetail[1]);
             item.put("line3", doctorDetail[2]);
@@ -113,17 +106,14 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         ListView lst = findViewById(R.id.listViewBMCart);
         lst.setAdapter(sa);
 
-        lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent it = new Intent(DoctorDetailsActivity.this, BookAppointmentActivity.class);
-                it.putExtra("text1", title);
-                it.putExtra("text2", doctor_details[position][0]);
-                it.putExtra("text3", doctor_details[position][1]);
-                it.putExtra("text4", doctor_details[position][3]);
-                it.putExtra("text5", doctor_details[position][4]);
-                startActivity(it);
-            }
+        lst.setOnItemClickListener((parent, view, position, id) -> {
+            Intent it1 = new Intent(DoctorDetailsActivity.this, BookAppointmentActivity.class);
+            it1.putExtra("text1", title);
+            it1.putExtra("text2", doctor_details[position][0]);
+            it1.putExtra("text3", doctor_details[position][1]);
+            it1.putExtra("text4", doctor_details[position][3]);
+            it1.putExtra("text5", doctor_details[position][4]);
+            startActivity(it1);
         });
     }
 }

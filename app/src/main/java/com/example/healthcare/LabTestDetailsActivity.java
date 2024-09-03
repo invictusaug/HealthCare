@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -44,27 +43,19 @@ public class LabTestDetailsActivity extends AppCompatActivity {
         edDetails.setText(intent.getStringExtra("text2"));
         tvTotalCost.setText(String.format("Total Cost : %s/-", intent.getStringExtra("text3")));
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LabTestDetailsActivity.this, LabTestActivity.class));
-            }
-        });
-        btnAddToCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
-                String username = sharedPreferences.getString("username","");
-                String product = tvPackageName.getText().toString();
-                float price = Float.parseFloat(intent.getStringExtra("text3"));
-                try (Database database = new Database(getApplicationContext(), "healthcare", null, 1)) {
-                    if (database.checkCart(username, product)) {
-                        Toast.makeText(getApplicationContext(), "Product Already Added", Toast.LENGTH_SHORT).show();
-                    } else {
-                        database.addCart(username, product, price, "lab");
-                        Toast.makeText(getApplicationContext(), "Record Inserted to Cart", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LabTestDetailsActivity.this, LabTestActivity.class));
-                    }
+        btnBack.setOnClickListener(v -> startActivity(new Intent(LabTestDetailsActivity.this, LabTestActivity.class)));
+        btnAddToCart.setOnClickListener(v -> {
+            SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
+            String username = sharedPreferences.getString("username","");
+            String product = tvPackageName.getText().toString();
+            float price = Float.parseFloat(intent.getStringExtra("text3"));
+            try (Database database = new Database(getApplicationContext(), "healthcare", null, 1)) {
+                if (database.checkCart(username, product)) {
+                    Toast.makeText(getApplicationContext(), "Product Already Added", Toast.LENGTH_SHORT).show();
+                } else {
+                    database.addCart(username, product, price, "lab");
+                    Toast.makeText(getApplicationContext(), "Record Inserted to Cart", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LabTestDetailsActivity.this, LabTestActivity.class));
                 }
             }
         });

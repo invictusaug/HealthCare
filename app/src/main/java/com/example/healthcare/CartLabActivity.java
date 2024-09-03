@@ -35,7 +35,8 @@ public class CartLabActivity extends AppCompatActivity {
     ListView listView;
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
-    private Button dateButton, timeButton, btnCheckout, btnBack;
+    private Button dateButton;
+    private Button timeButton;
     private String[][] packages = {};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,8 @@ public class CartLabActivity extends AppCompatActivity {
         });
         dateButton = findViewById(R.id.buttonBMCartDatePicker);
         timeButton = findViewById(R.id.buttonCartTimePicker);
-        btnCheckout = findViewById(R.id.buttonBMCartCheckout);
-        btnBack = findViewById(R.id.buttonBMCartBack);
+        Button btnCheckout = findViewById(R.id.buttonBMCartCheckout);
+        Button btnBack = findViewById(R.id.buttonBMCartBack);
         listView = findViewById(R.id.listViewBMCart);
 
         SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);

@@ -10,7 +10,7 @@
         android:id="@+id/line_a"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/textview"
         android:textColor="#ffffff"
         android:textSize="16sp"
         android:textStyle="italic"/>
@@ -18,7 +18,7 @@
         android:id="@+id/line_b"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/textview"
         android:textColor="#FFF000"
         android:textSize="14sp"
         android:textStyle="italic"/>
@@ -32,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.20"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/textview"
             android:textColor="#ffff66"
             android:textSize="12sp"
             android:textStyle="italic"/>
@@ -41,7 +41,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/textview"
             android:textColor="#ffff66"
             android:textSize="12sp"
             android:textStyle="italic"/>
@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_weight="0.3"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/textview"
             android:textColor="#ffff66"
             android:textSize="12sp"
             android:textStyle="italic"/>

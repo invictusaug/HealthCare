@@ -2,7 +2,6 @@ package com.example.healthcare;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -37,35 +36,27 @@ public class RegisterActivity extends AppCompatActivity {
         btn = findViewById(R.id.buttonBMCartCheckout);
         tv = findViewById(R.id.textViewExistingUser);
 
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-            }
-        });
+        tv.setOnClickListener(v -> startActivity(new Intent(RegisterActivity.this, LoginActivity.class)));
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username = edUsername.getText().toString();
-                String email = edEmail.getText().toString();
-                String password = edPassword.getText().toString();
-                String confirm = edConfirm.getText().toString();
-                Database db = new Database(getApplicationContext(), "healthcare", null, 1);
-                if(username.isEmpty() || email.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Please fill all the details", Toast.LENGTH_SHORT).show();
-                } else {
-                    if(password.compareTo(confirm)==0) {
-                        if(isValid(password)) {
-                            db.register(username, email, password);
-                            Toast.makeText(getApplicationContext(), "Record Inserted", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Password is invalid", Toast.LENGTH_SHORT).show();
-                        }
+        btn.setOnClickListener(v -> {
+            String username = edUsername.getText().toString();
+            String email = edEmail.getText().toString();
+            String password = edPassword.getText().toString();
+            String confirm = edConfirm.getText().toString();
+            Database db = new Database(getApplicationContext(), "healthcare", null, 1);
+            if(username.isEmpty() || email.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "Please fill all the details", Toast.LENGTH_SHORT).show();
+            } else {
+                if(password.compareTo(confirm)==0) {
+                    if(isValid(password)) {
+                        db.register(username, email, password);
+                        Toast.makeText(getApplicationContext(), "Record Inserted", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     } else {
-                        Toast.makeText(getApplicationContext(), "Password ans Cofirm password doesn't match", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Password is invalid", Toast.LENGTH_SHORT).show();
                     }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Password ans Cofirm password doesn't match", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -93,11 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
                     f3 = 1;
                 }
             }
-            if(f1 == 1 && f2 == 1 && f3 == 1) {
-                return true;
-            } else {
-                return false;
-            }
+            return f1 == 1 && f2 == 1 && f3 == 1;
         }
     }
 

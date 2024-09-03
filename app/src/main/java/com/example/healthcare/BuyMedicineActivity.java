@@ -2,8 +2,6 @@ package com.example.healthcare;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -69,18 +67,8 @@ public class BuyMedicineActivity extends AppCompatActivity {
         listView = findViewById(R.id.listViewBMCart);
         btnBack = findViewById(R.id.buttonBMDBack);
         btnGoToCart = findViewById(R.id.buttonBMDAddToCart);
-        btnGoToCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BuyMedicineActivity.this, CartBuyMedicineActivity.class));
-            }
-        });
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BuyMedicineActivity.this, HomeActivity.class));
-            }
-        });
+        btnGoToCart.setOnClickListener(v -> startActivity(new Intent(BuyMedicineActivity.this, CartBuyMedicineActivity.class)));
+        btnBack.setOnClickListener(v -> startActivity(new Intent(BuyMedicineActivity.this, HomeActivity.class)));
         arrayList = new ArrayList();
         for (String[] aPackage : packages) {
             stringStringHashMap = new HashMap<>();
@@ -96,15 +84,12 @@ public class BuyMedicineActivity extends AppCompatActivity {
                 new String[]{"line1", "line2", "line3", "line4", "line5"},
                 new int[]{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e});
         listView.setAdapter(simpleAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent it = new Intent(BuyMedicineActivity.this, BuyMedicineDetailsActivity.class);
-                it.putExtra("text1",packages[position][0]);
-                it.putExtra("text2", package_details[position]);
-                it.putExtra("text3", packages[position][4]);
-                startActivity(it);
-            }
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Intent it = new Intent(BuyMedicineActivity.this, BuyMedicineDetailsActivity.class);
+            it.putExtra("text1",packages[position][0]);
+            it.putExtra("text2", package_details[position]);
+            it.putExtra("text3", packages[position][4]);
+            startActivity(it);
         });
     }
 }

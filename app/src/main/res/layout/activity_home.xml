@@ -12,7 +12,7 @@
         android:id="@+id/titleHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="24/7 Health Care"
+        android:text="@string/_24_7_health_care"
         android:textColor="#fff"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -54,7 +54,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LAB TEST"
+                    android:text="@string/lab_test"
                     android:textAlignment="center"
                     android:textColor="@color/colorRed"
                     android:textStyle="bold"/>
@@ -89,7 +89,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="BUY MEDICINE"
+                    android:text="@string/buy_medicine"
                     android:textAlignment="center"
                     android:textColor="@color/colorRed"
                     android:textStyle="bold"/>
@@ -124,7 +124,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="FIND DOCTOR"
+                    android:text="@string/find_doctor"
                     android:textAlignment="center"
                     android:textColor="@color/colorRed"
                     android:textStyle="bold"/>
@@ -159,7 +159,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="HEALTH ARTICLES"
+                    android:text="@string/health_articles"
                     android:textAlignment="center"
                     android:textColor="@color/colorRed"
                     android:textStyle="bold"/>
@@ -194,7 +194,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ORDER DETAILS"
+                    android:text="@string/order_details"
                     android:textAlignment="center"
                     android:textColor="@color/colorRed"
                     android:textStyle="bold"/>
@@ -229,7 +229,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOGOUT"
+                    android:text="@string/logout"
                     android:textAlignment="center"
                     android:textColor="@color/colorRed"
                     android:textStyle="bold"/>

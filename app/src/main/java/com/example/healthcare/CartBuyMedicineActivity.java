@@ -2,7 +2,6 @@ package com.example.healthcare;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,7 +32,7 @@ public class CartBuyMedicineActivity extends AppCompatActivity {
     TextView tvTotalCost;
     ListView listView;
     private DatePickerDialog datePickerDialog;
-    private Button dateButton, btnCheckout, btnBack;
+    private Button dateButton;
     private String[][] packages = {};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +45,8 @@ public class CartBuyMedicineActivity extends AppCompatActivity {
             return insets;
         });
         dateButton = findViewById(R.id.buttonBMCartDatePicker);
-        btnCheckout = findViewById(R.id.buttonBMCartCheckout);
-        btnBack = findViewById(R.id.buttonBMCartBack);
+        Button btnCheckout = findViewById(R.id.buttonBMCartCheckout);
+        Button btnBack = findViewById(R.id.buttonBMCartBack);
         listView = findViewById(R.id.listViewBMCart);
         tvTotalCost = findViewById(R.id.textViewBMCartTotalPrice);
 

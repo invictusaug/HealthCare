@@ -17,7 +17,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="12dp"
-        android:text="24/7 HEALTHCARE"
+        android:text="@string/_24_7_health_care"
         android:textColor="#fff"
         android:textSize="30sp"
         android:textStyle="bold"/>
@@ -31,7 +31,7 @@
         android:layout_marginTop="56dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="12dp"
-        android:text="Top Doctors"
+        android:text="@string/top_doctors"
         android:textColor="#fff777"
         android:textSize="20sp"
         android:textStyle="bold"/>
@@ -71,7 +71,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FAMILY PHYSICIANS"
+                android:text="@string/family_physicians"
                 android:textAlignment="center"
                 android:textColor="@color/yellowLight"
                 android:textStyle="bold"/>
@@ -105,7 +105,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DIETICIAN"
+                    android:text="@string/dietician"
                     android:textAlignment="center"
                     android:textColor="@color/yellowLight"
                     android:textStyle="bold"/>
@@ -139,7 +139,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DENTIST"
+                    android:text="@string/dentist"
                     android:textAlignment="center"
                     android:textColor="@color/yellowLight"
                     android:textStyle="bold"/>
@@ -172,7 +172,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SURGEON"
+                    android:text="@string/surgeon"
                     android:textAlignment="center"
                     android:textColor="@color/yellowLight"
                     android:textStyle="bold"/>
@@ -205,7 +205,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CARDIOLOGISTS"
+                    android:text="@string/cardiologists"
                     android:textAlignment="center"
                     android:textColor="@color/yellowLight"
                     android:textStyle="bold"/>
@@ -238,7 +238,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="BACK"
+                    android:text="@string/back"
                     android:textAlignment="center"
                     android:textColor="@color/yellowLight"
                     android:textStyle="bold"/>
